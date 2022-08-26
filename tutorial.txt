@@ -14,4 +14,7 @@
 
 8:criar arquvo test-create-category.js   e la manda os primeiros dados pra o firebase
 
-9:criar test-create-product.js
+9:criar test-create-product.js configurar pra setar datos referenciados
+
+10: criar test-create-images.js
+
