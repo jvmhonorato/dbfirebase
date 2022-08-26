@@ -18,3 +18,7 @@
 
 10: criar test-create-images.js
 
+11: criar o READ do crud : test-list-category.js usar o snapshot que é um conjunto de registro pra retornar os dados no console
+
+12: criar test-list-products.js pra fazer o READ da collection product
+
