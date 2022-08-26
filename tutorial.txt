@@ -9,3 +9,7 @@
 5: atualizar o caminho do servoceAccount pra pra chave baixada
 
 6: autenticar com node ./test-auth.js pra ver se dar algum erro
+
+7: em firestoredatabase criar coleção documentos e capos cpra entender a modelagem
+
+8:criar arquvo test-create-category.js   e la manda os primeiros dados pra o firebase
