@@ -1,0 +1,11 @@
+1: criar pasta e iniciar projeto dentro dela com : npom init -y
+
+2: em firebase criar projeto/nomer projeto/cloudfirestone/criar banco de dados/iniciar no modo de produçao/engrenagem/configurções do projet/contas de serviços/gerar chave privada/bixar chave/renomear chave/ transferir chave pra o projeto
+
+3: criar arquivo test-auth.js copiar credencial do codigo gerado na página do firebase
+
+4: instalar firebase asmin: nom install firebase-admin
+
+5: atualizar o caminho do servoceAccount pra pra chave baixada
+
+6: autenticar com node ./test-auth.js pra ver se dar algum erro
