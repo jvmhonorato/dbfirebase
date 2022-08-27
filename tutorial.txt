@@ -27,3 +27,9 @@ OBS: lembrar de no moento do CREATE incluir no set() a estancia da categoria que
 
 14: criar o UPDATE de categoria: test-update-category.js
 
+15: criar UPDATE de produtos: rest-update-product.js fazendo update do valor do produto e passando refernacia a outras categorias atravez de array a mesmo tempo
+
+16: DELETE criar test-delete-category.js pra apagar categorias
+
+17: DELETE criar test-list-product2.js pra apagar imagens
+OBS: pra apagar imagem primeiro os dados da subcollection (documentos) antes de apagar o próprio documento
