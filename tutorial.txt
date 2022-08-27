@@ -12,13 +12,15 @@
 
 7: em firestoredatabase criar coleção documentos e capos cpra entender a modelagem
 
-8:criar arquvo test-create-category.js   e la manda os primeiros dados pra o firebase
+8:criar arquvo test-create-category.js   e la manda os primeiros dados pra o firebase CREATE
 
 9:criar test-create-product.js configurar pra setar datos referenciados
 
-10: criar test-create-images.js
+10: criar test-create-images.js CREATE
 
 11: criar o READ do crud : test-list-category.js usar o snapshot que é um conjunto de registro pra retornar os dados no console
 
 12: criar test-list-products.js pra fazer o READ da collection product
+
+13: READ buscar todos os produtos por categorias, criar tes-find-products.js nele passar uma where() pra filtrar a chamada pela categoria declarada
 

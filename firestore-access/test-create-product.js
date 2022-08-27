@@ -12,7 +12,7 @@ admin.initializeApp({
 const db = admin.firestore()
 
 //categoria estanciada
-const cat1 = 'Byi1tIf63GltKlU2VhLS'
+const cat1 = 'GSGNeRNyKEgrHzc5w4Uz'
 //criar referência entrea categoria estanciada em cat1 com a collection categories 
 const catRef = db.collection('categories').doc(cat1)
 
@@ -20,8 +20,8 @@ const catRef = db.collection('categories').doc(cat1)
 const doc = db.collection('products').doc()
 //set o doc chama o doc e depois o then cria categoria via código la no firebase
 doc.set({
-    product: 'Nome product',
-    price: 2000,
+    product: 'Sofá',
+    price: 1598,
     categories:[catRef],
     categories2:[cat1]
 }).then(snap => {
