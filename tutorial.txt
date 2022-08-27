@@ -23,4 +23,7 @@
 12: criar test-list-products.js pra fazer o READ da collection product
 
 13: READ buscar todos os produtos por categorias, criar tes-find-products.js nele passar uma where() pra filtrar a chamada pela categoria declarada
+OBS: lembrar de no moento do CREATE incluir no set() a estancia da categoria que vc quer associar os dados inseridos
+
+14: criar o UPDATE de categoria: test-update-category.js
 
