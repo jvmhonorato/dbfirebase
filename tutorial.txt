@@ -35,3 +35,9 @@ OBS: lembrar de no moento do CREATE incluir no set() a estancia da categoria que
 OBS: pra apagar imagem primeiro os dados da subcollection (documentos) antes de apagar o próprio documento
 
 18:criar test-paginate-category.js pra filtrar páginas e saber se tem outras páginas a serem renderizadar apartir da consulta
+
+19:ABSTRAIR CATEGORIAS: criar pasta POC e tranferir todos os documentos de test pra lá 
+
+20: criar firestore.js e colocar cabeçalho as configurções do firestore em todos os arquivos
+
+21:criar category.js
