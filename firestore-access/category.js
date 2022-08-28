@@ -18,7 +18,32 @@ categoriesDB.forEach(doc => {
 })
 return categories
 }
-//pra testar
-findAll().then(res => {
-    console.log(res)
-})
+
+//o delete será dinâmico passar o id no momento da chamada
+const remove = async(id) =>{
+const doc = db.collection('categories').doc(id)
+await doc.delete()
+
+}
+
+const create = async(data) => {
+    
+const doc = db.collection('categories').doc()
+
+await doc.set(data)
+
+}
+
+const update = async(id,data) => {
+    const doc = db.collection('categories').doc(id)
+    await doc.update(data)
+
+}
+
+
+module.exports = {
+    findAll,
+    remove,
+    create,
+    update
+}

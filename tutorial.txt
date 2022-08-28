@@ -40,4 +40,12 @@ OBS: pra apagar imagem primeiro os dados da subcollection (documentos) antes de 
 
 20: criar firestore.js e colocar cabeçalho as configurções do firestore em todos os arquivos
 
-21:criar category.js
+21:criar category.js vai retornar categorias 
+
+22: criar api.js pra retornar a chamda de category
+
+23: add o delete ao category
+
+24: add create ao category
+
+25: add o UPDATE ao category
