@@ -49,3 +49,5 @@ OBS: pra apagar imagem primeiro os dados da subcollection (documentos) antes de 
 24: add create ao category
 
 25: add o UPDATE ao category
+
+26: criar findAllPaginated em category
