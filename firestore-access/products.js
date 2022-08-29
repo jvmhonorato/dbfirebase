@@ -1,4 +1,5 @@
 const db = require('./firestore')
+const admin = require('firebase-admin')
 
 
 //READ
@@ -59,26 +60,61 @@ return {
 
 //DELETE
 const remove = async(id) =>{
-const doc = db.collection('categories').doc(id)
+const doc = db.collection('products').doc(id)
 await doc.delete()
 
 }
 
 //CREATE
-const create = async(data) => {
+// extrair categories de data
+const create = async({categories,...data}) => {
     
-const doc = db.collection('categories').doc()
+const doc = db.collection('products').doc()
+//usar o .map pra transformar o vetor categories que são strings pra categories que referenciam um documentos
+const categoriesRefs = categories.map(cat => db.collection('categories').doc(cat)
+)
 
-await doc.set(data)
+await doc.set({
+    ...data,
+    categories: categoriesRefs,
+    categories2: categories
+   
+
+})
 
 }
+/*
+const cat1 = 'GSGNeRNyKEgrHzc5w4Uz'
+//criar referência entrea categoria estanciada em cat1 com a collection categories 
+const catRef = db.collection('categories').doc(cat1)
+
+//estanciando as collection usando a extenção doc()
+const doc = db.collection('products').doc()
+//set o doc chama o doc e depois o then cria categoria via código la no firebase
+doc.set({
+    product: 'Sofá',
+    price: 1598,
+    categories:[catRef],
+    categories2:[cat1]
+}).then(snap => {
+    console.log(snap)
+})
+*/
 
 //UPDATE
-const update = async(id,data) => {
-    const doc = db.collection('categories').doc(id)
-    await doc.update(data)
+const update = async(id,{categories, ...data}) => {
+    const categoriesRefs = categories.map(cat => db.collection('categories').doc(cat))
+    const doc = db.collection('products').doc(id)
+    await doc.update({
+        ...data,
+        categories:  admin.firestore.FieldValue.arrayUnion(...categoriesRefs),
+        categories2: admin.firestore.FieldValue.arrayUnion(...categories)
+
+    })
 
 }
+
+
 
 
 module.exports = {
