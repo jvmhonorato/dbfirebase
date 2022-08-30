@@ -20,13 +20,20 @@ const testes = async() => {
       price: 79780,
       categories: ['0vSnH7lsI1jAUSYiMbU8']
     })*/
-    await products.update('IXvxw3rswa5101kGQdfx',{
+    /*await products.update('IXvxw3rswa5101kGQdfx',{
       product: 'Audi rs6',
       categories:['qtqV0I9EzkFHiQmY3Aer']
-    })
+    })*/
 
-    const cats = await categories.findAllPaginated({pageSize:2, startAfter:'Motos'})
-    console.log(cats)
+    //await products.remove('GaTYcuKVJBS6trWr9CU3')
+
+    //const cats = await categories.findAllPaginated({pageSize:2, startAfter:'Motos'})
+
+   // await products.addImage('IXvxw3rswa5101kGQdfx', {description: 'New IMage', url:'url'})
+   // console.log(cats)
+
+    const prods = await products.findAll()
+    console.log(prods)
 
 }
 testes()

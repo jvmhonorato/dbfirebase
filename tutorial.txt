@@ -53,3 +53,5 @@ OBS: pra apagar imagem primeiro os dados da subcollection (documentos) antes de 
 26: criar findAllPaginated em category
 
 27: criar products.js
+
+28: REVISAR FIREBASE, NÃO FICOU MUITO CLARO

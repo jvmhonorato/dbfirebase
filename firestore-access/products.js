@@ -4,23 +4,52 @@ const admin = require('firebase-admin')
 
 //READ
 const findAll = async() => {
-    const categoriesDB = await db.collection('categories').get()
+    const productsDB = await db.collection('products').get()
 
-if(categoriesDB.empty){
+if(productsDB.empty){
     return []
 }
 //pra retornar um vetor com todas as categorias e o id
-const categories = []
-categoriesDB.forEach(doc => {
+const products = []
+productsDB.forEach(doc => {
+    
     //empurra pra o array 
-    categories.push({
+    products.push({
         //spread operator pega o que já havia e espalha junto com o id do produtos
         ...doc.data(),
         id: doc.id
+        
     })
 })
-return categories
+const products2 = []
+for await(product of products){
+   
+    const imgs = []
+    
+    const imgsDB = await db
+    .collection('products')
+    .doc(product.id)
+    .collection('images')
+    .get()
+    
+      imgsDB.forEach(img => {
+        imgs.push({
+            ...img.data,
+            id: img.id
+        })
+      })
+      products2.push({
+        ...products,
+        imgs
+      })
+      return products2
+    
 }
+products
+return products
+}
+
+   
 
 //FILTER results
 const findAllPaginated = async({pageSize=10, startAfter = ''}) => {
@@ -60,10 +89,25 @@ return {
 
 //DELETE
 const remove = async(id) =>{
+    const imgs = await db
+    .collection('products')
+    .doc(id)
+    .collection('images')
+    .get()
+    const exclusoes = []
+    imgs.forEach(img => {
+        exclusoes.push(db.collection('products').doc(id).collection('images').doc(img.id).delete())
+     })
+     await Promise.all(exclusoes)
+
 const doc = db.collection('products').doc(id)
 await doc.delete()
 
 }
+
+
+
+ 
 
 //CREATE
 // extrair categories de data
@@ -83,23 +127,21 @@ await doc.set({
 })
 
 }
-/*
-const cat1 = 'GSGNeRNyKEgrHzc5w4Uz'
-//criar referência entrea categoria estanciada em cat1 com a collection categories 
-const catRef = db.collection('categories').doc(cat1)
 
-//estanciando as collection usando a extenção doc()
-const doc = db.collection('products').doc()
-//set o doc chama o doc e depois o then cria categoria via código la no firebase
-doc.set({
-    product: 'Sofá',
-    price: 1598,
-    categories:[catRef],
-    categories2:[cat1]
-}).then(snap => {
-    console.log(snap)
-})
-*/
+//ADD IMAGE
+const addImage = async(id, data) => {
+    
+
+
+const imageRef = db
+.collection('products')
+.doc(id)
+.collection('images')
+.doc()
+
+await imageRef.set(data)
+}
+
 
 //UPDATE
 const update = async(id,{categories, ...data}) => {
@@ -122,5 +164,6 @@ module.exports = {
     findAllPaginated,
     remove,
     create,
-    update
+    update,
+    addImage
 }
